@@ -1,0 +1,62 @@
+<header>
+  <h1>
+    EmberCDV App 123
+  </h1>
+</header>
+<div id="main">
+  <div id="scrollable">
+    <ul class="ui-table-view">
+      {{#each page in model}}
+        <li {{action 'goToPage' page}} class="disclosure">
+          {{page.title}}
+        </li>
+      {{/each}}
+    </ul>
+    <br>
+
+<div class="content-padded text-center">
+    <button {{action 'scanABarcode'}}>
+        Scan a barcode
+      </button>
+      <br/>
+      <br/>
+      <b>Current Barcode</b> : {{barcodeResult}}<br/>
+      
+       </div>
+
+<div class="content-padded text-center">
+    <button  {{action 'scanWithDataWedge'}}>
+        Scan with Data Wedge
+      </button>
+      <br/>
+      <br/>
+      <b>Wedge Barcode</b> : {{wedgeResult}}<br/>
+      
+       </div>
+   
+
+
+
+    <div class="content-padded text-center">
+    <button  {{action 'takeAPicture'}}>
+        Take a Picture
+      </button>
+<br/>
+      <br/>
+      <b>My Picture</b><br/>
+      URL : {{imgSrc}}<br/>
+       <img {{bind-attr src=imgSrc}} height="300" width="300" />
+    </div>
+
+    <div class="content-padded text-center">
+      <a href="#" {{action 'openModal' 'help'}}>
+        Help
+      </a>
+    </div>
+
+    <div class="content-padded text-center">
+      Today is {{format-date today 'MMM DD, YYYY h:mma'}}
+    </div>
+  </div>
+</div>
+
